@@ -37,28 +37,6 @@ async function run() {
     }
     const sender: string = context.payload.sender!.login;
     const issue: {owner: string; repo: string; number: number} = context.issue;
-    let firstContribution: boolean = false;
-    if (isIssue) {
-      firstContribution = await isFirstIssue(
-        client,
-        issue.owner,
-        issue.repo,
-        sender,
-        issue.number
-      );
-    } else {
-      firstContribution = await isFirstPull(
-        client,
-        issue.owner,
-        issue.repo,
-        sender,
-        issue.number
-      );
-    }
-    if (!firstContribution) {
-      console.log('Not the users first contribution');
-      return;
-    }
 
     // Do nothing if no message set for this type of contribution
     const message: string = isIssue ? issueMessage : prMessage;
