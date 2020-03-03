@@ -32,6 +32,8 @@ async function run() {
 
     // Do nothing if its not their first contribution
     console.log('Checking if its the users first contribution');
+    console.log('Damn it, nothing pops here let me try again');
+    console.log('---------------------------------------------------------------------');
     if (!context.payload.sender) {
       throw new Error('Internal error, no sender provided by GitHub');
     }
